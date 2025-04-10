@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MySQL GROUP BY Statement</title>
+  <style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 30px;
+        color: #2c3e50;
+        line-height: 1.6;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #3498db;
+        margin-bottom: 10px;
+      }
+
+      p.intro {
+        font-size: 16px;
+        color: #7f8c8d;
+        max-width: 900px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+      }
+
+      section {
+        background-color: #fafafa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      section h2 {
+        font-size: 1.8em;
+        color: #2980b9;
+        margin-bottom: 15px;
+      }
+
+      section p {
+        font-size: 16px;
+        color: #34495e;
+      }
+
+      .code-box {
+        background-color: #f4f4f4;
+        border-left: 5px solid #3498db;
+        padding: 15px;
+        font-family: 'Courier New', Courier, monospace;
+        white-space: pre-wrap;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+
+      .example {
+        font-weight: bold;
+        color: #e74c3c;
+      }
+
+      .note {
+        font-size: 0.9em;
+        color: #7f8c8d;
+      }
+
+      ul {
+        margin-top: 15px;
+        padding-left: 20px;
+      }
+
+      code {
+        background-color: #f9f9f9;
+        padding: 4px 6px;
+        border-radius: 5px;
+        font-family: 'Courier New', Courier, monospace;
+        color: #2980b9;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #7f8c8d;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .section {
+        background-color: #fafafa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-content h3 {
+        margin-top: 20px;
+        color: #2980b9;
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+      }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>MySQL GROUP BY Statement</h1>
+    <p>The MySQL <code>GROUP BY</code> statement groups rows that have the same values into summary rows, such as finding the number of customers in each country. It is often used with aggregate functions like <code>COUNT()</code>, <code>MAX()</code>, <code>MIN()</code>, <code>SUM()</code>, and <code>AVG()</code> to group the result-set by one or more columns.</p>
+  </div>
+
+  <div class="section">
+    <h2>Syntax</h2>
+    <div class="code-box">
+      SELECT column_name(s)
+      FROM table_name
+      GROUP BY column_name(s);
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Example: Counting Customers by Country</h2>
+    <p>The following SQL statement lists the number of customers in each country:</p>
+    <div class="code-box">
+      SELECT COUNT(CustomerID), Country
+      FROM Customers
+      GROUP BY Country;
+    </div>
+    <p><strong>Explanation:</strong> This query selects the count of customers and the country from the "Customers" table, grouping the results by the "Country" column.</p>
+  </div>
+
+  <div class="section">
+    <h2>Example: Counting Customers by Country with Sorting</h2>
+    <p>The following SQL statement lists the number of customers in each country, sorted from highest to lowest:</p>
+    <div class="code-box">
+      SELECT COUNT(CustomerID), Country
+      FROM Customers
+      GROUP BY Country
+      ORDER BY COUNT(CustomerID) DESC;
+    </div>
+    <p><strong>Explanation:</strong> This query extends the previous example by adding an <code>ORDER BY</code> clause to sort the results based on the count of customers in descending order.</p>
+  </div>
+
+  <div class="section">
+    <h2>Example: GROUP BY with JOIN</h2>
+    <p>The following SQL statement lists the number of orders sent by each shipper:</p>
+    <div class="code-box">
+      SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders
+      FROM Orders
+      LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+      GROUP BY ShipperName;
+    </div>
+    <p><strong>Explanation:</strong> This query joins the "Orders" and "Shippers" tables on the "ShipperID" column and groups the results by "ShipperName", counting the number of orders for each shipper.</p>
+  </div>
+
+  <div class="section">
+    <h2>Note</h2>
+    <p>When using the <code>GROUP BY</code> statement, ensure that all selected columns are either used for grouping or are aggregated. This ensures the query adheres to SQL standards and avoids errors.</p>
+  </div>
+
+</body>
+</html>

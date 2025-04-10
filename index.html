@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DBMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      height: 100vh;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .left-panel {
+      flex: 1;
+      background: linear-gradient(to bottom right, #1f1c2c, #928dab);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      color: #ffffff;
+    }
+
+    .left-panel h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background-color: #ffffff30;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .right-panel {
+      flex: 1.2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #121212;
+      padding: 60px 40px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .card p {
+      font-size: 1.1em;
+      margin-bottom: 12px;
+      color: #cccccc;
+      border-left: 3px solid #ff4c60;
+      padding-left: 10px;
+    }
+
+    .card .label {
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      background-color: #ff4c60;
+      color: #fff;
+      border: none;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff5d72;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .left-panel,
+      .right-panel {
+        flex: unset;
+        width: 100%;
+        height: auto;
+      }
+
+      .left-panel {
+        padding: 20px;
+      }
+
+      .right-panel {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="left-panel">
+    <div class="avatar">VN</div>
+    <h1>Vinay</h1>
+    <p>BCA 4th Semester</p>
+  </div>
+
+  <div class="right-panel">
+    <div class="card">
+      <p><span class="label">Roll Number:</span> 4074/23</p>
+      <p><span class="label">Submitted to:</span> Mr. Chetan Gupta</p>
+      <a href="frame.html" class="button">Go to Home</a>
+    </div>
+  </div>
+</body>
+</html>

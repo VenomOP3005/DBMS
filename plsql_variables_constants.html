@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PL/SQL Variables and Constants</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+      padding: 30px;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2980b9;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+    }
+    h2 {
+      font-size: 2em;
+      margin-top: 40px;
+    }
+    h3 {
+      font-size: 1.8em;
+      margin-top: 30px;
+    }
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+    .syntax, .example {
+      background-color: #f4f4f4;
+      border-left: 5px solid #3498db;
+      padding: 15px;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre-wrap;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      border-radius: 8px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #2980b9;
+      padding: 40px;
+      border-radius: 10px;
+      color: white;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    footer {
+      background-color: #2980b9;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .section-content {
+      background-color: #fafafa;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    @media (min-width: 768px) {
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PL/SQL Variables and Constants</h1>
+    <p>Learn how to use variables and constants in PL/SQL for efficient program execution.</p>
+  </header>
+
+  <div class="container">
+    <div class="section-content">
+      <h2>Declaring Variables</h2>
+      <p>PL/SQL variables must be declared in the <code>DECLARE</code> section of a PL/SQL block. You can optionally initialize variables at the time of declaration.</p>
+      <h3>Syntax</h3>
+      <div class="syntax">
+variable_name datatype [NOT NULL] [:= initial_value];
+      </div>
+      <h3>Example</h3>
+      <div class="example">
+DECLARE<br>
+  salary NUMBER(7,2);<br>
+  name VARCHAR2(50) := 'John';<br>
+BEGIN<br>
+  NULL;<br>
+END;
+      </div>
+    </div>
+
+    <div class="section-content">
+      <h2>Variable Scope</h2>
+      <p>The scope of a variable is the region of the program where the variable can be accessed. PL/SQL supports:</p>
+      <ul>
+        <li><strong>Local Scope</strong> – Variables declared within a block, accessible only inside that block.</li>
+        <li><strong>Global Scope</strong> – Variables declared in a package, accessible throughout the application.</li>
+      </ul>
+    </div>
+
+    <div class="section-content">
+      <h2>Declaring Constants</h2>
+      <p>Constants are similar to variables but must be assigned a value at the time of declaration and cannot be modified later.</p>
+      <h3>Syntax</h3>
+      <div class="syntax">
+constant_name CONSTANT datatype := value;
+      </div>
+      <h3>Example</h3>
+      <div class="example">
+DECLARE<br>
+  pi CONSTANT NUMBER := 3.14159;<br>
+  app_name CONSTANT VARCHAR2(20) := 'HR_APP';<br>
+BEGIN<br>
+  NULL;<br>
+END;
+      </div>
+    </div>
+
+    <div class="section-content">
+      <h2>Using %TYPE Attribute</h2>
+      <p>The <code>%TYPE</code> attribute allows you to declare a variable with the same data type as a column or another variable.</p>
+      <h3>Syntax</h3>
+      <div class="syntax">
+variable_name table_name.column_name%TYPE;
+      </div>
+      <h3>Example</h3>
+      <div class="example">
+DECLARE<br>
+  emp_salary employees.salary%TYPE;<br>
+BEGIN<br>
+  NULL;<br>
+END;
+      </div>
+    </div>
+
+    <div class="section-content">
+      <h2>Using %ROWTYPE Attribute</h2>
+      <p>The <code>%ROWTYPE</code> attribute allows declaration of a record with the same structure as a row in a table or a cursor.</p>
+      <h3>Syntax</h3>
+      <div class="syntax">
+record_name table_name%ROWTYPE;
+      </div>
+      <h3>Example</h3>
+      <div class="example">
+DECLARE<br>
+  emp_rec employees%ROWTYPE;<br>
+BEGIN<br>
+  NULL;<br>
+END;
+      </div>
+    </div>
+
+    <div class="section-content">
+      <h2>Summary</h2>
+      <p>PL/SQL supports robust variable and constant handling with options for type safety using <code>%TYPE</code> and <code>%ROWTYPE</code>. These constructs help in writing maintainable and error-free code, especially when working with database objects.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 PL/SQL Tutorial</p>
+  </footer>
+
+</body>
+</html>

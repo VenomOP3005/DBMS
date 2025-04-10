@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL DROP COLUMN Keyword</title>
+  <style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 30px;
+        color: #2c3e50;
+        line-height: 1.6;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #3498db;
+        margin-bottom: 10px;
+      }
+
+      p.intro {
+        font-size: 16px;
+        color: #7f8c8d;
+        max-width: 900px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+      }
+
+      section {
+        background-color: #fafafa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      section h2 {
+        font-size: 1.8em;
+        color: #2980b9;
+        margin-bottom: 15px;
+      }
+
+      section p {
+        font-size: 16px;
+        color: #34495e;
+      }
+
+      .code-box {
+        background-color: #f4f4f4;
+        border-left: 5px solid #3498db;
+        padding: 15px;
+        font-family: 'Courier New', Courier, monospace;
+        white-space: pre-wrap;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+
+      .example {
+        font-weight: bold;
+        color: #e74c3c;
+      }
+
+      .note {
+        font-size: 0.9em;
+        color: #7f8c8d;
+      }
+
+      ul {
+        margin-top: 15px;
+        padding-left: 20px;
+      }
+
+      code {
+        background-color: #f9f9f9;
+        padding: 4px 6px;
+        border-radius: 5px;
+        font-family: 'Courier New', Courier, monospace;
+        color: #2980b9;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #7f8c8d;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .section {
+        background-color: #fafafa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-content h3 {
+        margin-top: 20px;
+        color: #2980b9;
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+      }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>SQL DROP COLUMN Keyword</h1>
+    <p>The <strong>DROP COLUMN</strong> command is used to delete a column in an existing table.</p>
+  </div>
+
+  <div class="section">
+    <h2>Syntax</h2>
+    <div class="code-box">
+ALTER TABLE table_name
+DROP COLUMN column_name;
+    </div>
+    <p><strong>Note:</strong> Some database systems do not allow deleting a column.</p>
+  </div>
+
+  <div class="section">
+    <h2>Example</h2>
+    <p>The following SQL deletes the "ContactName" column from the "Customers" table:</p>
+    <div class="code-box">
+ALTER TABLE Customers
+DROP COLUMN ContactName;
+    </div>
+  </div>
+
+</body>
+</html>
